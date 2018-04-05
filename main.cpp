@@ -21,7 +21,7 @@ int main()
         char turn = X; //Player X always goes first
         int row;
         int column;
-        bool playing = false;
+        bool playing = true;
 
         do
         {
