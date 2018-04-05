@@ -10,7 +10,7 @@ const char BLANK = ' ';
 const char X = 'X';
 const char O = 'O';
 const int QUIT = -1;
-
+char winner = ' '; 
 int main()
 {
         //3x3 matrix of characters, initially with blank spaces in each position
@@ -21,7 +21,7 @@ int main()
         char turn = X; //Player X always goes first
         int row;
         int column;
-        bool playing = true; //Continue playing by default
+        bool playing = false;
 
         do
         {
@@ -76,9 +76,22 @@ int main()
 
                         cout << endl;
                 }
+if (board[0][0] == board[0][1] && board[0][0] == board[0][2] || board[0][0] == board[1][0] && board[0][0] == board[2][0] && board[0][0] != ' ')
+winner = board[0][0];
+
+if (board[1][1] == board[0][2] && board [1][1] == board [2][0] || board[1][1] == board[2][2] && board [1][1] == board[0][0] || board[1][1] == board[1][2] && board[1][1] == board[1][0] || board[1][1] == board[0][1] && board[1][1] == board [2][1] && board[1][1] != ' ')
+winner = board[1][1];
+
+if(board[2][2] == board[1][2] && board [2][2] == board[0][2] || board[2][2] == board[2][1] && board [2][2] == board[2][0] && board[2][2] != ' ')
+winner = board[2][2];
 
 
-        }while( playing );
+}while( playing );
+
+if (winner != ' ')
+{
+cout << "Winner is " << winner << endl;
+}
 
         cout<<"Goodbye!\n";
 
